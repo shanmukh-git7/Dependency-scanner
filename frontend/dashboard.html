@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Dependency Scanner</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="brand">🛡️ Dependency Scanner</a>
+        <div class="nav-links">
+            <span id="user-display" style="font-weight: bold; margin-right: 1rem;"></span>
+            <button onclick="logout()" class="btn-sm btn-danger">Logout</button>
+            <button id="theme-toggle" class="theme-toggle" style="margin-left: 1rem;">🌙</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Dashboard</h2>
+
+        <div class="dashboard-grid">
+            <!-- Stats -->
+            <div class="card">
+                <h3>Vulnerability Overview</h3>
+                <div class="stats-container mt-2">
+                    <div class="stat-item">
+                        <h3 id="total-deps">0</h3>
+                        <p class="text-muted">Dependencies</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="vuln-found" class="text-danger">0</h3>
+                        <p class="text-muted">Vulnerabilities</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload -->
+            <div class="card">
+                <h3>New Scan</h3>
+                <div id="upload-area" class="upload-section mt-1">
+                    <div class="upload-icon">📂</div>
+                    <p id="upload-text">Click to select <strong>Dependency File</strong><br><small>(pom.xml, package.json, requirements.txt, yarn.lock, etc.)</small></p>
+                    <input type="file" id="file-input" accept=".xml,.json,.txt,.lock,.yaml,.yml" style="display: none;">
+                </div>
+
+                <div id="file-actions" style="display: none; text-align: center; margin-top: 1.5rem;">
+                    <p style="margin-bottom: 1rem;">Selected: <strong id="selected-filename"
+                            class="text-success"></strong></p>
+                    <button id="scan-btn" class="btn-primary">🚀 Scan Now</button>
+                    <br><br>
+                    <button id="cancel-upload" class="btn-sm btn-danger">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Chart -->
+            <div class="card">
+                <h3>Analysis</h3>
+                <div class="chart-container">
+                    <canvas id="scanChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- History -->
+        <h3 style="margin-top: 3rem;">Scan History</h3>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Filename</th>
+                        <th>Dependencies</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="history-body">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Details Modal -->
+    <div id="details-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Scan Details</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <table class="details-table">
+                    <thead>
+                        <tr>
+                            <th>Dependency</th>
+                            <th>Type</th>
+                            <th>Severity</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="details-body">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

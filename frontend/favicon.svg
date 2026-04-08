@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Shield Shape -->
+  <path d="M50 5 L85 20 V50 C85 70 70 85 50 95 C30 85 15 70 15 50 V20 L50 5 Z" 
+        fill="#050a10" stroke="#00f3ff" stroke-width="5"/>
+  
+  <!-- Check Mark -->
+  <path d="M35 50 L45 60 L65 40" 
+        stroke="#00f3ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

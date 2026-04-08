@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Dependency Scanner</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar" style="border-bottom: 2px solid var(--danger);">
+        <a href="index.html" class="brand">🛡️ ADMIN PANEL</a>
+        <div class="nav-links">
+            <a href="dashboard.html">User Dashboard</a>
+            <button onclick="logout()" class="btn-sm btn-danger">Logout</button>
+            <button id="theme-toggle" class="theme-toggle" style="margin-left: 1rem;">🌙</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 style="color: var(--danger);">System Administration</h2>
+
+        <div class="dashboard-grid">
+            <div class="card" style="grid-column: span 2;">
+                <h3>User Management</h3>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card" style="grid-column: span 2;">
+                <h3>Global Scan History</h3>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>User</th>
+                                <th>Filename</th>
+                                <th>Vulns</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-scans-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
