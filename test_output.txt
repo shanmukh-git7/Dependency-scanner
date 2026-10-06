@@ -1,8 +1,0 @@
-﻿Testing package-lock.json: Status 200
-  Deps found: 2, Vulns: 2
-Testing requirements.txt: Status 200
-  Deps found: 3, Vulns: 3
-Testing yarn.lock: Status 200
-  Deps found: 2, Vulns: 1
-Testing deps.yaml: Status 200
-  Deps found: 2, Vulns: 2
